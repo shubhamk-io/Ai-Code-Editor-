@@ -1,5 +1,6 @@
 import express from "express"
 import dotenv from 'dotenv'
+import { connectDb } from "./config/db.js";
 
 
 dotenv.config();
@@ -14,5 +15,6 @@ app.get("/api/auth",(req,res)=>{
 });
 
 app.listen(port,()=>{
+    connectDb()
     console.log(`Auth services started at ${port}`)
 })
